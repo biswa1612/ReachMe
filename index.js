@@ -12,7 +12,8 @@ const { MONGODB } = require('./config');
 
 const server = new ApolloServer({                                    //typedefs and resolvers are passed to the apollo server
     typeDefs,
-    resolvers
+    resolvers,
+    context: ({ req }) => ({ req })
 });
 mongoose.connect(MONGODB, { useNewUrlParser: true })
     .then(() => {
