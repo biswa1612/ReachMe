@@ -30,9 +30,9 @@ module.exports = {
           const user = checkAuth(context);
           console.log(user);
     
-        //   if (body.trim() === '') {
-        //     throw new Error('Post body must not be empty');
-        //   }
+          if (body.trim() === '') {
+            throw new Error('Post body must not be empty');
+          }
     
           const newPost = new Post({
             body,
@@ -43,9 +43,9 @@ module.exports = {
     
           const post = await newPost.save();
     
-        //   context.pubsub.publish('NEW_POST', {
-        //     newPost: post
-        //   });
+          context.pubsub.publish('NEW_POST', {
+            newPost: post
+          });
     
           return post;
         },
@@ -63,6 +63,31 @@ module.exports = {
             } catch (err) {
               throw new Error(err);
             }
+        },
+        async likePost(_, { postId }, context) {
+            const { username } = checkAuth(context);
+      
+            const post = await Post.findById(postId);
+            if (post) {
+              if (post.likes.find((like) => like.username === username)) {
+                // Post already likes, unlike it
+                post.likes = post.likes.filter((like) => like.username !== username);  //returns the likes of those username which does not matches with the one who unliked
+              } else {
+                // Not liked, like post
+                post.likes.push({
+                  username,
+                  createdAt: new Date().toISOString()
+                });
+              }
+      
+              await post.save();
+              return post;
+            } else throw new UserInputError('Post not found');
+        }
+    },
+    Subscription: {
+        newPost: {
+          subscribe: (_, __, { pubsub }) => pubsub.asyncIterator('NEW_POST')
         }
     }
 };
