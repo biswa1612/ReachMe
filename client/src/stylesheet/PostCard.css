@@ -1,0 +1,8 @@
+.row h1{
+    margin:auto;
+    margin-top: 10px;
+}
+.ui .card{
+    width: 80%;
+    margin: auto;
+}

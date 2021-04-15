@@ -66,7 +66,7 @@ module.exports = {
           })
       }
       //hash password and create an auth token
-      password = await brcypt.hash(password, 12);
+      password = await bcrypt.hash(password, 12);
 
       const newUser = new User({
         email,
