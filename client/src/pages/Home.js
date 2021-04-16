@@ -3,13 +3,15 @@ import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import { Grid } from 'semantic-ui-react';
 import PostCard from '../components/PostCard';
-
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@100&family=Kaushan+Script&display=swap');
+</style>
 function Home() {
     const { loading, data: { getPosts: posts }={}} = useQuery(FETCH_POSTS_QUERY);
     return (
         <Grid columns={1}>
             <Grid.Row>
-                <h1>Recent Posts</h1>
+                <h1 className="recent">Recent Posts</h1>
             </Grid.Row>
             <Grid.Row>
             {loading ? (

@@ -5,4 +5,10 @@
 .ui .card{
     width: 80%;
     margin: auto;
+    background-color: #f8f9fa;
+}
+
+.ui.card .content .header{
+    color: #7209b7;
+    font-family: 'Kaushan Script', cursive;
 }

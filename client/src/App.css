@@ -3,3 +3,21 @@
     margin: auto;
     padding-bottom: 30px;
 }
+.form-container h1{
+   text-align: center;
+   color: #7209b7;
+   font-family: 'Kaushan Script', cursive;
+}
+.recent{
+    font-family: 'Kaushan Script', cursive;
+    color: #7209b7;
+}
+.ui .menu{
+    font-family: 'Kaushan Script', cursive;
+}
+body{
+    background-image: url("https://image.freepik.com/free-photo/white-concrete-wall_53876-92803.jpg");
+}
+.ui.medium.image{
+    margin: auto;
+}
