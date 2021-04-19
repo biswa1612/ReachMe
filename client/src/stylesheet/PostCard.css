@@ -6,6 +6,7 @@
     width: 80%;
     margin: auto;
     background-color: #f8f9fa;
+    white-space: pre-wrap;
 }
 
 .ui.card .content .header{

@@ -32,6 +32,10 @@ body{
 .ui.form .field{
     width: 85%;
     margin: auto;
+    
+}
+.ui.card .content .description{
+    white-space: pre-wrap;
 }
 .ui.purple.button{
     margin-left: 45%;
@@ -53,9 +57,13 @@ body{
 @media screen and (max-width: 700px) {
     .ui.purple.button{
         margin-left: 40%;
+        
     }
     .ui.form .field{
         width: 90%;
         margin: auto;
+    }
+    .ui.form textarea {
+        width: 990px;
     }
 }

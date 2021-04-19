@@ -14,6 +14,7 @@ function PostForm() {
 
     const [createPost, { error }] = useMutation(CREATE_POST_MUTATION, {
         variables: values,
+        errorPolicy: 'all',             //PASSED to avoid app from breaking
         update(proxy, result){
             const data = proxy.readQuery({            //fetches posts query from cache & data is the root query
                 query: FETCH_POSTS_QUERY           //root
